@@ -6,7 +6,7 @@ import { Textarea } from './ui/textarea';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { toast } from 'sonner';
+import { toast } from '@/hooks/use-toast';
 
 const contactSchema = z.object({
   name: z.string()
@@ -64,10 +64,17 @@ export const Contact = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      toast.success('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+      toast({
+        title: "Mensagem enviada!",
+        description: "Entraremos em contato em breve.",
+      });
       reset();
     } catch (error) {
-      toast.error('Erro ao enviar mensagem. Tente novamente.');
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente mais tarde.",
+        variant: "destructive",
+      });
     }
   };
 

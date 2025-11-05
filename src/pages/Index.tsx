@@ -7,6 +7,7 @@ import { FloatingDevices } from '@/components/FloatingDevices';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { Contact } from '@/components/Contact';
 import { CTA } from '@/components/CTA';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 import macbookMockup from '@/assets/macbook-mockup.png';
 import iphoneMockup from '@/assets/iphone-mockup.png';
 
@@ -14,6 +15,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <WhatsAppButton />
       <div id="home">
         <Hero />
       </div>

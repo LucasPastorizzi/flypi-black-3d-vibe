@@ -26,19 +26,19 @@ const features = [
 
 export const Features = () => {
   return (
-    <section id="diferenciais" className="py-24 relative">
+    <section id="diferenciais" className="py-16 md:py-24 relative">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">
             Nossos <span className="gradient-text">Diferenciais</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Recursos poderosos projetados para elevar sua experiência
           </p>
         </motion.div>
