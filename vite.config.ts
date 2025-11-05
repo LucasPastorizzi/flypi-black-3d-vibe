@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/flypi-black-3d-vibe/", 
+  base: "/flypi-black-3d-vibe", 
 
   server: {
     host: "::",
