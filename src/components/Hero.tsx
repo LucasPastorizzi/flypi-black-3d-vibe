@@ -9,14 +9,14 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_hsl(189,94%,43%,0.15),_transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_hsl(0,0%,100%,0.05),_transparent_70%)]" />
       
       {/* 3D Canvas */}
-      <div className="absolute inset-0 opacity-60">
+      <div className="absolute inset-0 opacity-40">
         <Canvas camera={{ position: [0, 0, 5] }}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0AC6DE" />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ffffff" />
           <AnimatedSphere />
           <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
           <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />

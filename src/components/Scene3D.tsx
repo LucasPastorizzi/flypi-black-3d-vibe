@@ -16,7 +16,7 @@ export const AnimatedSphere = () => {
   return (
     <Sphere ref={sphereRef} args={[1, 100, 100]} scale={2.5}>
       <MeshDistortMaterial
-        color="#0AC6DE"
+        color="#ffffff"
         attach="material"
         distort={0.3}
         speed={2}
