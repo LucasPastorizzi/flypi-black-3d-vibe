@@ -26,7 +26,7 @@ const features = [
 
 export const Features = () => {
   return (
-    <section className="py-24 relative">
+    <section id="diferenciais" className="py-24 relative">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,14 +36,14 @@ export const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
-            Why Choose <span className="gradient-text">Flypi</span>
+            Nossos <span className="gradient-text">Diferenciais</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Powerful features designed to elevate your experience
+            Recursos poderosos projetados para elevar sua experiência
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -52,7 +52,7 @@ export const Features = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ scale: 1.05 }}
-              className="glass-effect rounded-2xl p-8 hover:border-primary/50 transition-all duration-300"
+              className="glass-effect rounded-2xl p-6 md:p-8 hover:border-primary/50 transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                 <feature.icon className="w-7 h-7 text-primary" />
