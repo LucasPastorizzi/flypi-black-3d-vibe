@@ -47,6 +47,7 @@ export const Navbar = () => {
             onClick={() => scrollToSection('#home')}
           >
             Flypi
+           
           </motion.div>
 
           {/* Desktop Menu */}
