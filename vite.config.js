@@ -9,6 +9,7 @@ export default defineConfig({
     port: 8080,
   },
   plugins: [react(), componentTagger()],
+  base: "/flypi-black-3d-vibe",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
