@@ -16,19 +16,27 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <WhatsAppButton />
+
       <div id="home">
         <Hero />
       </div>
+
       <About />
       <Services />
       <FloatingDevices />
       <Features />
+
+
+   <section id="catálogo">
       <ProductShowcase
         title="Desktop Perfeito"
         description="Experiência desktop completa com interface intuitiva e performance excepcional. Seu produto brilha em telas grandes com recursos avançados."
         imageSrc={macbookMockup}
         imageAlt="Desktop showcase"
       />
+    </section>
+      
+
       <ProductShowcase
         title="Mobile First"
         description="Design responsivo que se adapta perfeitamente a qualquer dispositivo móvel. Leve seu produto no bolso com toda funcionalidade."
@@ -36,8 +44,12 @@ const Index = () => {
         imageAlt="Mobile showcase"
         reverse
       />
+
+ 
+
       <Contact />
       <CTA />
+
       <footer className="py-8 border-t border-border">
         <div className="container mx-auto px-4 text-center text-muted-foreground">
           <p>&copy; 2024 Flypi. All rights reserved.</p>

@@ -7,6 +7,7 @@ const navItems = [
   { label: 'Sobre', href: '#about' },
   { label: 'Serviços', href: '#services' },
   { label: 'Diferenciais', href: '#diferenciais' },
+  { label: 'Catálogo', href: '#catalogo' },
   { label: 'Contato', href: '#contato' },
 ];
 
