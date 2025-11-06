@@ -39,13 +39,13 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Telefone',
-    value: '+55 (11) 9999-9999',
-    href: 'tel:+5511999999999',
+    value: '+55 (51) 9999-9999',
+    href: 'tel:+5551999999999',
   },
   {
     icon: MapPin,
     title: 'Endereço',
-    value: 'São Paulo, SP - Brasil',
+    value: 'Ivoti, RS - Brasil',
     href: '#',
   },
 ];

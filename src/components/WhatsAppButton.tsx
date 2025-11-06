@@ -2,7 +2,7 @@ import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const WhatsAppButton = () => {
-  const phoneNumber = '5511999999999'; // Altere para seu número
+  const phoneNumber = '5551998766944'; 
   const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços do Flypi.');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
