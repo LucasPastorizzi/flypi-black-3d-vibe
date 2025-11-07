@@ -121,10 +121,10 @@ export const Contact = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="flex items-center gap-4 glass-effect rounded-xl p-4 hover:border-primary/50 transition-all duration-300"
+                  className="flex items-center gap-4 glass-effect rounded-xl p-4 hover:border-yellow-300 transition-all duration-300"
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <info.icon className="w-6 h-6 text-primary" />
+                    <info.icon className="w-6 h-6 text-yellow-300" />
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">{info.title}</div>
@@ -141,7 +141,7 @@ export const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-effect rounded-2xl p-6 md:p-8  "
+            className="glass-effect rounded-2xl p-6 md:p-8   "
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
