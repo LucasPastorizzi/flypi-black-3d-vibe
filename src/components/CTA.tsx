@@ -16,7 +16,7 @@ export const CTA = () => {
           className="glass-effect rounded-3xl p-12 md:p-16 text-center max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Experience <span className="gradient-text">Flypi</span>?
+            Ready to Experience <span className="text-yellow-300">Flypi</span>?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of users who have already transformed their workflow with our platform

@@ -30,16 +30,16 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-yellow-300" />
       
       {/* 3D Canvas */}
-     <div className="absolute inset-0">
- 
-
+<div className="absolute inset-0">
 <Canvas
   camera={{ position: [0, 0, 5] }}
   onCreated={({ gl, scene }) => {
     gl.setClearColor('#fde047'); // 🎨 fundo preto puro do WebGL
+    
   }}
 >
   {/* luzes */}
+  
   <ambientLight intensity={0.05} />
   <pointLight position={[5, 5, 5]} intensity={0.2} color="#ffffff" />
   <pointLight position={[-5, -5, -5]} intensity={0.1} color="#ffffff" />
@@ -91,7 +91,7 @@ export const Hero = () => {
               transition={{ duration: 0.5 }}
             >
               <span className="text-white">{welcomePart}</span>
-              <span className="text-black">{flypiPart}</span>
+              <span className="text-yellow-300">{flypiPart}</span>
             </motion.span>
             <motion.span
               animate={{ opacity: [1, 0, 1] }}
