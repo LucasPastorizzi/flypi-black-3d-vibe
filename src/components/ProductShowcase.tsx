@@ -52,7 +52,8 @@ export const ProductShowcase = ({ title, description, imageSrc, imageAlt, revers
                 className="w-full h-auto drop-shadow-2xl"
               />
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent blur-3xl -z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-300 to-transparent blur-3xl -z-10" />
+
             </div>
           </motion.div>
         </div>

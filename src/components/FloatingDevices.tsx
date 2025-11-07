@@ -47,7 +47,7 @@ export const FloatingDevices = () => {
               <div className="h-1 md:h-2 bg-gradient-to-b from-zinc-700 to-zinc-800 rounded-b-xl mx-auto" style={{ width: '60%' }} />
               
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-white/5 blur-2xl md:blur-3xl -z-10 scale-110" />
+              <div className="absolute inset-0 bg-yellow-300 blur-2xl md:blur-3xl -z-10 scale-110" />
             </div>
           </motion.div>
 
