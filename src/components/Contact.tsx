@@ -89,7 +89,7 @@ export const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Entre em <span className="gradient-text">Contato</span>
+            Entre em <span className="text-yellow-300">Contato</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Estamos prontos para transformar suas ideias em realidade. Fale conosco!
@@ -141,7 +141,7 @@ export const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-effect rounded-2xl p-6 md:p-8"
+            className="glass-effect rounded-2xl p-6 md:p-8  "
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>

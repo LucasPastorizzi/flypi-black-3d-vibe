@@ -36,7 +36,7 @@ export const Features = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">
-            Nossos <span className="gradient-text">Diferenciais</span>
+            Nossos <span className="text-yellow-300">Diferenciais</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Recursos poderosos projetados para elevar sua experiência
@@ -52,10 +52,10 @@ export const Features = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ scale: 1.05 }}
-              className="glass-effect rounded-2xl p-6 md:p-8 hover:border-primary/50 transition-all duration-300"
+              className="glass-effect rounded-2xl p-6 md:p-8 hover:border-yellow-300 transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <feature.icon className="w-7 h-7 text-primary" />
+                <feature.icon className="w-7 h-7 text-yellow-300" />
               </div>
               <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>

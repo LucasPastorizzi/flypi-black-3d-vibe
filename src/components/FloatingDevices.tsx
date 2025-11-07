@@ -15,7 +15,7 @@ export const FloatingDevices = () => {
           className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6 leading-tight">
-            Seu Produto em <span className="gradient-text">Qualquer Lugar</span>
+            Seu Produto em <span className="text-yellow-300">Qualquer Lugar</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Apresente sua solução de forma profissional em todos os dispositivos
