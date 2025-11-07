@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import { AnimatedSphere } from './Scene3D';
@@ -6,6 +7,23 @@ import { ArrowRight, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Hero = () => {
+  const fullText = 'Welcome to Flypi';
+  const [displayedText, setDisplayedText] = useState('');
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setDisplayedText(fullText.slice(0, index + 1));
+      index++;
+      if (index === fullText.length) clearInterval(interval);
+    }, 100); // velocidade da digitação
+    return () => clearInterval(interval);
+  }, []);
+
+  // divide o texto atual em "Welcome to " e "Flypi"
+  const welcomePart = displayedText.split('Flypi')[0];
+  const flypiPart = displayedText.includes('Flypi') ? 'Flypi' : '';
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background gradient glow */}
@@ -37,13 +55,30 @@ export const Hero = () => {
             className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-effect mb-6 md:mb-8"
           >
             <Zap className="w-3 h-3 md:w-4 md:h-4 text-primary" />
-            <span className="text-xs md:text-sm text-muted-foreground">Next Generation Technology</span>
+            <span className="text-xs md:text-sm text-muted-foreground">
+              Next Generation Technology
+            </span>
           </motion.div>
 
+          {/* Title com efeito de digitação e cores separadas */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 glow-text leading-tight">
-            Welcome to <span className="gradient-text">Flypi</span>
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="text-white">{welcomePart}</span>
+              <span className="text-yellow-300">{flypiPart}</span>
+            </motion.span>
+            <motion.span
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ repeat: Infinity, duration: 0.8 }}
+              className="text-yellow-400"
+            >
+              |
+            </motion.span>
           </h1>
-          
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
