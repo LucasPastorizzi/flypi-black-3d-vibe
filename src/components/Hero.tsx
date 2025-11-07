@@ -27,19 +27,42 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background gradient glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_hsl(0,0%,100%,0.05),_transparent_70%)]" />
+      <div className="absolute inset-0 bg-yellow-300" />
       
       {/* 3D Canvas */}
-      <div className="absolute inset-0 opacity-40">
-        <Canvas camera={{ position: [0, 0, 5] }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ffffff" />
-          <AnimatedSphere />
-          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
-        </Canvas>
-      </div>
+     <div className="absolute inset-0">
+ 
+
+<Canvas
+  camera={{ position: [0, 0, 5] }}
+  onCreated={({ gl, scene }) => {
+    gl.setClearColor('#fde047'); // 🎨 fundo preto puro do WebGL
+  }}
+>
+  {/* luzes */}
+  <ambientLight intensity={0.05} />
+  <pointLight position={[5, 5, 5]} intensity={0.2} color="#ffffff" />
+  <pointLight position={[-5, -5, -5]} intensity={0.1} color="#ffffff" />
+
+  {/* esfera + estrelas */}
+  <AnimatedSphere />
+  <Stars
+    radius={100}
+    depth={50}
+    count={5000}
+    factor={4}
+    fade
+    speed={1}
+   
+  />
+
+  <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+</Canvas>
+
+   
+
+
+</div> 
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
@@ -51,7 +74,7 @@ export const Hero = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.6 }}  
             className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-effect mb-6 md:mb-8"
           >
             <Zap className="w-3 h-3 md:w-4 md:h-4 text-primary" />
@@ -68,12 +91,12 @@ export const Hero = () => {
               transition={{ duration: 0.5 }}
             >
               <span className="text-white">{welcomePart}</span>
-              <span className="text-yellow-300">{flypiPart}</span>
+              <span className="text-black">{flypiPart}</span>
             </motion.span>
             <motion.span
               animate={{ opacity: [1, 0, 1] }}
               transition={{ repeat: Infinity, duration: 0.8 }}
-              className="text-yellow-400"
+              className="text-white"
             >
               |
             </motion.span>

@@ -31,7 +31,7 @@ export const About = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-            Sobre o <span className="gradient-text">Flypi</span>
+            Sobre o <span className="text-yellow-300">Flypi</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Somos uma empresa focada em transformar ideias em realidade digital,
@@ -47,10 +47,10 @@ export const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="glass-effect rounded-2xl p-8 text-center hover:border-primary/50 transition-all duration-300"
+              className="glass-effect rounded-2xl p-8 text-center hover:border-yellow-300 transition-all duration-300"
             >
               <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <value.icon className="w-8 h-8 text-primary" />
+                <value.icon className="w-8 h-8 text-yellow-300" />
               </div>
               <h3 className="text-2xl font-semibold mb-4">{value.title}</h3>
               <p className="text-muted-foreground">{value.description}</p>
@@ -63,7 +63,7 @@ export const About = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="glass-effect rounded-3xl p-8 md:p-12"
+          className="glass-effect rounded-3xl p-8 md:p-12  border-yellow-300"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>

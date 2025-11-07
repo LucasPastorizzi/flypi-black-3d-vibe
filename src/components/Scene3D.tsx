@@ -16,12 +16,12 @@ export const AnimatedSphere = () => {
   return (
     <Sphere ref={sphereRef} args={[1, 100, 100]} scale={2.5}>
       <MeshDistortMaterial
-        color="#ffffff"
+        color="#fde047" // 🎨 Tailwind yellow-300 (#fde047)
         attach="material"
         distort={0.3}
         speed={2}
-        roughness={0.2}
-        metalness={0.8}
+        roughness={0.5}
+        metalness={0.2}
       />
     </Sphere>
   );

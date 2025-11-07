@@ -63,7 +63,7 @@ export const Navbar = () => {
                 className="text-foreground hover:text-primary transition-colors relative group"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
               </motion.button>
             ))}
           </div>
