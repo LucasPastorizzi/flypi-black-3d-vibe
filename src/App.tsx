@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+ // 👈 importação nova
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -13,12 +15,14 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter  basename="/flypi-black-3d-vibe">
+      <BrowserRouter basename="/flypi-black-3d-vibe">
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+
+        {/* 👇 Botão flutuante global */}
+        
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

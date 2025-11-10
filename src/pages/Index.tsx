@@ -8,8 +8,8 @@ import { ProductShowcase } from '@/components/ProductShowcase';
 import { Contact } from '@/components/Contact';
 import { CTA } from '@/components/CTA';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
-import macbookMockup from '@/assets/macbook-mockup.png';
-import iphoneMockup from '@/assets/iphone-mockup.png';
+import macbookMockup from '@/assets/macbook-mockup1.png';
+import iphoneMockup from '@/assets/macbook-mockup1.png';
 
 const Index = () => {
   return (
