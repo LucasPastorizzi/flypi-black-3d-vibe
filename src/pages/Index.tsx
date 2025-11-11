@@ -12,6 +12,8 @@ import macbookMockup from "@/assets/macbook-mockup1.png";
 import iphoneMockup from "@/assets/macbook-mockup1.png";
 import { CreativeProcess } from "../components/CreativeProcess";
 
+import NewMac from "@/assets/Midnight.png";
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -39,7 +41,7 @@ const Index = () => {
         <ProductShowcase
           title="Desktop Perfeito"
           description="Experiência desktop completa com interface intuitiva e performance excepcional. Seu produto brilha em telas grandes com recursos avançados."
-          imageSrc={macbookMockup}
+          imageSrc={NewMac}
           imageAlt="Desktop showcase"
         />
       </section>

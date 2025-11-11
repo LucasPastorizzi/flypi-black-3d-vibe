@@ -1,23 +1,32 @@
 import { motion } from "framer-motion";
 import macbookMockup from "@/assets/macbook-mockup1.png";
+import MacBook3 from "@/assets/MacBook3.png";
+import IluminatedFlypi from "@/assets/IlluminatedBillboard.png";
+import Floating from "@/assets/ImgforFloating.jpg";
+
 
 export const FloatingDevices = () => {
   const cards = [
     {
       title: "App oficial™",
       subtitle: "Sua loja no celular do seu cliente",
+      image : macbookMockup,
     },
     {
       title: "Loja virtual.",
       subtitle: "Seus produtos em um só lugar vendendo para o Brasil todo!",
+      image: MacBook3,
+      
     },
     {
       title: "Nacional & global.",
       subtitle: "Venda para onde quiser e na moeda que quiser",
+      image: IluminatedFlypi
     },
     {
       title: "Identidade visual.",
       subtitle: "Criamos sua marca completa",
+      image : Floating,
     },
   ];
 
@@ -62,7 +71,7 @@ export const FloatingDevices = () => {
                 transition={{ duration: 0.5 }}
               >
                 <img
-                  src={macbookMockup}
+                  src={card.image}
                   alt={card.title}
                   className="object-cover w-full h-60 md:h-72 transition-transform duration-700 opacity-80"
                 />
