@@ -8,6 +8,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from '@/hooks/use-toast';
 
+
+
+
 const contactSchema = z.object({
   name: z.string()
     .trim()
@@ -78,7 +81,12 @@ export const Contact = () => {
     }
   };
 
-  return (
+return (
+  <>
+    {/* 👇 Etapas do processo criativo — aparece antes do contato */}
+   
+
+    {/* 👇 A seção de contato original continua igual */}
     <section id="contato" className="py-24 relative">
       <div className="container mx-auto px-4">
         <motion.div
@@ -141,41 +149,22 @@ export const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-effect rounded-2xl p-6 md:p-8   "
+            className="glass-effect rounded-2xl p-6 md:p-8"
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <Input
-                  {...register('name')}
-                  placeholder="Seu nome"
-                  className="bg-secondary/50"
-                />
-                {errors.name && (
-                  <p className="text-destructive text-sm mt-1">{errors.name.message}</p>
-                )}
+                <Input {...register('name')} placeholder="Seu nome" className="bg-secondary/50" />
+                {errors.name && <p className="text-destructive text-sm mt-1">{errors.name.message}</p>}
               </div>
 
               <div>
-                <Input
-                  {...register('email')}
-                  type="email"
-                  placeholder="Seu email"
-                  className="bg-secondary/50"
-                />
-                {errors.email && (
-                  <p className="text-destructive text-sm mt-1">{errors.email.message}</p>
-                )}
+                <Input {...register('email')} type="email" placeholder="Seu email" className="bg-secondary/50" />
+                {errors.email && <p className="text-destructive text-sm mt-1">{errors.email.message}</p>}
               </div>
 
               <div>
-                <Input
-                  {...register('subject')}
-                  placeholder="Assunto"
-                  className="bg-secondary/50"
-                />
-                {errors.subject && (
-                  <p className="text-destructive text-sm mt-1">{errors.subject.message}</p>
-                )}
+                <Input {...register('subject')} placeholder="Assunto" className="bg-secondary/50" />
+                {errors.subject && <p className="text-destructive text-sm mt-1">{errors.subject.message}</p>}
               </div>
 
               <div>
@@ -185,9 +174,7 @@ export const Contact = () => {
                   rows={6}
                   className="bg-secondary/50 resize-none"
                 />
-                {errors.message && (
-                  <p className="text-destructive text-sm mt-1">{errors.message.message}</p>
-                )}
+                {errors.message && <p className="text-destructive text-sm mt-1">{errors.message.message}</p>}
               </div>
 
               <Button
@@ -205,5 +192,7 @@ export const Contact = () => {
         </div>
       </div>
     </section>
-  );
+  </>
+);
+
 };
