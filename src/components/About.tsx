@@ -41,21 +41,31 @@ export const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
           {values.map((value, index) => (
-            <motion.div
-              key={value.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="glass-effect rounded-2xl p-8 text-center hover:border-yellow-300 transition-all duration-300"
-            >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <value.icon className="w-8 h-8 text-yellow-300" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">{value.title}</h3>
-              <p className="text-muted-foreground">{value.description}</p>
-            </motion.div>
-          ))}
+  <motion.div
+    key={value.title}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.2, duration: 0.6 }}
+    className="relative glass-effect rounded-2xl p-8 text-center cursor-pointer transform-gpu transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-yellow-300"
+    whileHover={{
+      rotateX: -5,
+      rotateY: 5,
+      scale: 1.05,
+      transition: { type: "spring", stiffness: 200, damping: 12 },
+    }}
+    whileTap={{ scale: 0.98 }}
+  >
+    {/* Brilho animado premium (opcional, pode remover se quiser mais clean) */}
+    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-2xl" />
+
+    <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
+      <value.icon className="w-8 h-8 text-yellow-300" />
+    </div>
+    <h3 className="text-2xl font-semibold mb-4">{value.title}</h3>
+    <p className="text-muted-foreground">{value.description}</p>
+  </motion.div>
+))}
         </div>
 
         <motion.div
