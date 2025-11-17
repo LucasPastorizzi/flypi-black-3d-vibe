@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from "@/assets/Flypi-Logo.png";
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -16,9 +17,7 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -37,18 +36,23 @@ export const Navbar = () => {
         isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4">
+      {/* Container ajustado para responsividade */}
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="flex items-center justify-between h-20">
+
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-2xl font-bold gradient-text cursor-pointer"
+            className="cursor-pointer flex items-center"
             onClick={() => scrollToSection('#home')}
           >
-            Flypi
-           
+            <img
+              src={logo}
+              alt="Flypi Logo"
+              className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-transform hover:scale-105"
+            />
           </motion.div>
 
           {/* Desktop Menu */}
@@ -74,7 +78,7 @@ export const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
@@ -86,15 +90,15 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.35 }}
             className="md:hidden glass-effect border-t border-border"
           >
-            <div className="container mx-auto px-4 py-4 space-y-4">
+            <div className="px-4 py-4 space-y-3">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors"
+                  className="block w-full text-left py-2 text-foreground text-lg hover:text-primary transition-colors"
                 >
                   {item.label}
                 </button>

@@ -1,4 +1,4 @@
-import step1 from "@/assets/macbook-mockup1.png";
+import step1 from "@/assets/Briefing-image.png";
 import step2 from "@/assets/macbook-mockup1.png";
 import step3 from "@/assets/macbook-mockup1.png";
 import step4 from "@/assets/macbook-mockup1.png";
