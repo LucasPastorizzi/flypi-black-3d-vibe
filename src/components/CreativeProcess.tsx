@@ -1,5 +1,5 @@
-import step1 from "@/assets/Briefing-image.png";
-import step2 from "@/assets/macbook-mockup1.png";
+import step1 from "@/assets/iPad Pro 2020.png";
+import step2 from "@/assets/Coffee Cup.png";
 import step3 from "@/assets/macbook-mockup1.png";
 import step4 from "@/assets/macbook-mockup1.png";
 import { motion } from "framer-motion";
@@ -16,7 +16,7 @@ const steps = [
   },
   {
     number: "02",
-    title: "Identidade visual.",
+    title: "Análise de Requisitos Funcionais.",
     description:
       "Hora de dar rosto à marca: cores, tipografias e elementos que conectam com o público.",
     image: step2,
