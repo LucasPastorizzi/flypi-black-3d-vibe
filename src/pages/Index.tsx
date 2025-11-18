@@ -11,8 +11,9 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import macbookMockup from "@/assets/macbook-mockup1.png";
 import iphoneMockup from "@/assets/macbook-mockup1.png";
 import { CreativeProcess } from "../components/CreativeProcess";
-
 import NewMac from "@/assets/Midnight.png";
+import TechCarousel from "@/components/TechCarousel";
+
 
 const Index = () => {
   return (
@@ -55,6 +56,9 @@ const Index = () => {
       />
 
        <CreativeProcess />
+       
+  <TechCarousel />
+
 
       {/* Contato e chamada final */}
       <Contact />
