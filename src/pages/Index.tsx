@@ -13,6 +13,7 @@ import iphoneMockup from "@/assets/macbook-mockup1.png";
 import { CreativeProcess } from "../components/CreativeProcess";
 import NewMac from "@/assets/Midnight.png";
 import TechCarousel from "@/components/TechCarousel";
+import  ExternExamples  from "@/components/ExternExamples";
 
 
 const Index = () => {
@@ -34,6 +35,7 @@ const Index = () => {
 
       {/* Serviços e destaques */}
       <Services />
+      <ExternExamples />
       <FloatingDevices />
       <TechCarousel />
       <Features />
@@ -48,6 +50,7 @@ const Index = () => {
           imageAlt="Desktop showcase"
         />
       </section>
+      
 
       <ProductShowcase
         title="Mobile First"
@@ -64,7 +67,7 @@ const Index = () => {
 
       {/* Contato e chamada final */}
       <Contact />
-      <CTA />
+      
 
       {/* Rodapé */}
       <footer className="py-8 border-t border-border">
