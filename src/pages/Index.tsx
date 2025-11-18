@@ -35,7 +35,9 @@ const Index = () => {
       {/* Serviços e destaques */}
       <Services />
       <FloatingDevices />
+      <TechCarousel />
       <Features />
+      
 
       {/* Catálogo e exibições de produto */}
       <section id="catálogo">
@@ -57,7 +59,7 @@ const Index = () => {
 
        <CreativeProcess />
        
-  <TechCarousel />
+  
 
 
       {/* Contato e chamada final */}
