@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from "@/components/ui/button";
 import logo from "@/assets/Flypi-Logo.png";
 
 const navItems = [
@@ -8,8 +9,8 @@ const navItems = [
   { label: 'Sobre', href: '#about' },
   { label: 'Serviços', href: '#services' },
   { label: 'Diferenciais', href: '#diferenciais' },
-  { label: 'Catálogo', href: '#catalogo' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Catálogo', href: '#catalogo' }
+ 
 ];
 
 export const Navbar = () => {
@@ -36,7 +37,6 @@ export const Navbar = () => {
         isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
       }`}
     >
-      {/* Container ajustado para responsividade */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="flex items-center justify-between h-20">
 
@@ -70,6 +70,14 @@ export const Navbar = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full" />
               </motion.button>
             ))}
+
+            {/* Botão Fale Conosco */}
+            <Button
+              onClick={() => scrollToSection('#contato')}
+              className="ml-4 px-5 py-2 rounded-xl font-medium shadow-md hover:scale-105 transition-all"
+            >
+              Fale Conosco
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -103,6 +111,14 @@ export const Navbar = () => {
                   {item.label}
                 </button>
               ))}
+
+              {/* Botão Fale Conosco - Mobile */}
+              <button
+                onClick={() => scrollToSection('#contato')}
+                className="block w-full text-center mt-3 px-4 py-2 bg-primary text-white rounded-lg text-lg shadow-md hover:scale-105 transition-all"
+              >
+                Fale Conosco
+              </button>
             </div>
           </motion.div>
         )}
