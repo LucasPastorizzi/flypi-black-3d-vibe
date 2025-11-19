@@ -4,13 +4,13 @@ import { Target, Users, Lightbulb } from 'lucide-react';
 const values = [
   {
     icon: Target,
-    title: 'Nossa Missão',
+    title: 'Missão',
     description: 'Revolucionar a forma como empresas interagem com tecnologia através de soluções inovadoras e intuitivas.',
   },
   {
     icon: Users,
-    title: 'Nossa Equipe',
-    description: 'Profissionais apaixonados por tecnologia, dedicados a criar experiências excepcionais para nossos clientes.',
+    title: 'Equipe',
+    description: 'Uma equipe jovem e ambiciosa, dedicada a evoluir nosso produto constantemente e crescer lado a lado com os resultados dos nossos parceiros.',
   },
   {
     icon: Lightbulb,
@@ -31,11 +31,11 @@ export const About = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-            Sobre o <span className="text-yellow-300">Flypi</span>
+            Sobre a <span className="text-yellow-300">Flypi</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-            Transformamos ideias em ativos digitais estratégicos. 
-            Soluções tecnológicas desenhadas para impulsionar negócios e conectar mercados.
+            Transformamos ideias em ativos digitais estratégicos. <br/>
+            Soluções tecnológicas para impulsionar negócios e conectar mercados.
           </p>
         </motion.div>
 
