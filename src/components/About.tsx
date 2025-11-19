@@ -34,8 +34,8 @@ export const About = () => {
             Sobre o <span className="text-yellow-300">Flypi</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-            Somos uma empresa focada em transformar ideias em realidade digital,
-            oferecendo soluções tecnológicas que impulsionam negócios e conectam pessoas.
+            Transformamos ideias em ativos digitais estratégicos. 
+            Soluções tecnológicas desenhadas para impulsionar negócios e conectar mercados.
           </p>
         </motion.div>
 
