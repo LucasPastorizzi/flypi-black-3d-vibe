@@ -46,10 +46,10 @@ export const Services = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-             Serviços End-to-End para a Estruturação da <span className="text-yellow-300">Transformação Digital Corporativa.</span>
+             Serviços End-to-End para a Estruturação da <span className="text-yellow-300">Transformação Digital Corporativa</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-            Soluções completas para transformar sua visão em realidade digital
+            Soluções completas para transformar sua visão em realidade digital.
           </p>
         </motion.div>
 

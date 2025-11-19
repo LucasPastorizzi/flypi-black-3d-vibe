@@ -13,18 +13,18 @@ export const FloatingDevices = () => {
       image : macbookMockup,
     },
     {
-      title: "Loja virtual.",
+      title: "Loja virtual",
       subtitle: "Seus produtos em um só lugar vendendo para o Brasil todo!",
       image: MacBook3,
       
     },
     {
-      title: "Nacional & global.",
+      title: "Nacional & global",
       subtitle: "Venda para onde quiser e na moeda que quiser",
       image: IluminatedFlypi
     },
     {
-      title: "Identidade visual.",
+      title: "Identidade visual",
       subtitle: "Criamos sua marca completa",
       image : Floating,
     },
@@ -47,7 +47,7 @@ export const FloatingDevices = () => {
           <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-4 text-foreground">
             Experiências <span className="text-yellow-300">Digitais</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3x1 mx-auto">
             Transformamos ideias em soluções visuais e funcionais, elevando marcas a outro nível.
           </p>
         </motion.div>

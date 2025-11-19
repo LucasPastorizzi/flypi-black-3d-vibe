@@ -8,15 +8,15 @@ import { useState } from "react";
 const steps = [
   {
     number: "01",
-    title: "Briefing & pesquisa.",
+    title: "Briefing & pesquisa",
     description:
       "Estudamos seu negócio para entender o projeto e criar uma marca alinhada à estratégia.",
     image: step1,
-    dark: true,
+    dark: false,
   },
   {
     number: "02",
-    title: "Análise de Requisitos Funcionais.",
+    title: "Análise de Requisitos Funcionais",
     description:
       "Hora de dar rosto à marca: cores, tipografias e elementos que conectam com o público.",
     image: step2,
@@ -24,7 +24,7 @@ const steps = [
   },
   {
     number: "03",
-    title: "Loja virtual.",
+    title: "Loja virtual",
     description:
       "Sua marca no ar com uma estrutura Shopify pronta para vender pro mundo inteiro.",
     image: step3,
@@ -32,7 +32,7 @@ const steps = [
   },
   {
     number: "04",
-    title: "Apresentação.",
+    title: "Apresentação",
     description:
       "A entrega completa e oficial do projeto e dos materiais de marca desenvolvidos.",
     image: step4,
