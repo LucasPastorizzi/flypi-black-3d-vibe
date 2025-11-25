@@ -42,14 +42,14 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Telefone',
-    value: '+55 (51) 9999-9999',
-    href: 'tel:+5551999999999',
+    value: '+55 (51) 99876-6944',
+    href: 'tel:+5551998766944',
   },
   {
     icon: MapPin,
     title: 'Endereço',
     value: 'Ivoti, RS - Brasil',
-    href: '#',
+    href: 'https://www.google.com/maps/place/Ivoti,+RS,+93900-000/@-29.6045297,-51.2054262,13z/data=!3m1!4b1!4m6!3m5!1s0x95194546d6bcc2c7:0x44ee55d9e5d4b98e!8m2!3d-29.6106737!4d-51.1637876!16s%2Fg%2F11bxfzxq3j?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D',
   },
 ];
 
@@ -116,7 +116,7 @@ return (
             <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Informações de Contato</h3>
               <p className="text-muted-foreground mb-8">
-                Preencha o formulário ou entre em contato através de nossos canais.
+                Clique nos cards abaixo para nos contatar via email, telefone ou localizar nosso endereço.
               </p>
             </div>
 
