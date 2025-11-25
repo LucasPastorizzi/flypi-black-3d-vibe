@@ -100,7 +100,7 @@ return (
             Entre em <span className="text-yellow-300">Contato</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Estamos prontos para transformar suas ideias em realidade. Fale conosco!
+            Vamos criar algo incrível juntos
           </p>
         </motion.div>
 
@@ -115,9 +115,6 @@ return (
           >
             <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Informações de Contato</h3>
-              <p className="text-muted-foreground mb-8">
-                Clique nos cards abaixo para nos contatar via email, telefone ou localizar nosso endereço.
-              </p>
             </div>
 
             <div className="space-y-6">
