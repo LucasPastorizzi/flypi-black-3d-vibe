@@ -19,19 +19,19 @@ export const Showcase = () => {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
-            Catálogo de <span className="text-yellow-300">Experiências</span>
+          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-black">
+            Plataformas de Visualização de <span className="text-yellow-300">Produtos</span>
           </h2>
-          <p className="text-lg text-zinc-400 mt-3 max-w-xl mx-auto">
-            Veja como o produto se adapta e se destaca em diferentes dispositivos.
+          <p className="text-lg text-zinc-400 mt-3 max-w-xl mx-auto text-black">
+           Design e função impulsionam suas vendas.
           </p>
         </motion.div>
 
         {/* --- SEÇÃO DESKTOP --- */}
         <div className="relative">
           <ProductShowcase
-            title="Desktop Perfeito"
-            description="Uma experiência completa em tela grande. Interface limpa, fluida e rápida para quem busca alta performance."
+            title="Otimização para Ambientes Desktop"
+            description="Criamos interfaces projetadas com engenharia de usabilidade para alta produtividade em telas grandes. Nossa arquitetura garante um design limpo, navegação fluida e performance ultrarrápida, ideal para usuários que exigem eficiência máxima."
             imageSrc={NewMac}
             imageAlt="Desktop showcase"
           />
@@ -40,8 +40,8 @@ export const Showcase = () => {
         {/* --- SEÇÃO MOBILE --- */}
         <div className="relative">
           <ProductShowcase
-            title="Mobile First"
-            description="Design totalmente responsivo e adaptado ao uso diário no celular. Funciona suavemente em qualquer dispositivo."
+            title="Estratégia Mobile-First e Experiência Universal"
+            description="Adotamos a metodologia Mobile-First como pilar de desenvolvimento. Garantimos um design totalmente responsivo e interfaces otimizadas que oferecem uma experiência fluida e performática no uso diário, em qualquer tela."
             imageSrc={iphoneMockup}
             imageAlt="Mobile showcase"
             reverse

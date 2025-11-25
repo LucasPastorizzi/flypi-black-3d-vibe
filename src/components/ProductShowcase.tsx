@@ -23,8 +23,8 @@ export const ProductShowcase = ({
         transition={{ duration: 0.7 }}
         className="max-w-md text-center md:text-left"
       >
-        <h3 className="text-3xl md:text-4xl font-bold text-white">{title}</h3>
-        <p className="text-zinc-400 mt-4 text-lg leading-relaxed">{description}</p>
+        <h3 className="text-3xl md:text-4xl font-bold text-black">{title}</h3>
+        <p className="text-zinc-500 mt-4 text-lg leading-relaxed">{description}</p>
       </motion.div>
 
       {/* IMAGEM COM EFEITO 3D + NOVO HOVER */}
