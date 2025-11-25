@@ -9,11 +9,13 @@ import { Contact } from "@/components/Contact";
 import { CTA } from "@/components/CTA";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import macbookMockup from "@/assets/macbook-mockup1.png";
-import iphoneMockup from "@/assets/macbook-mockup1.png";
+import iphoneMockup from "@/assets/Black.png";
 import { CreativeProcess } from "../components/CreativeProcess";
-import NewMac from "@/assets/Midnight.png";
+import NewMac from "@/assets/Midnight12121.png";
 import TechCarousel from "@/components/TechCarousel";
 import  ExternExamples  from "@/components/ExternExamples";
+import {Showcase }   from "@/components/Showcase";
+
 
 
 const Index = () => {
@@ -41,26 +43,9 @@ const Index = () => {
       <Features />
       
 
-      {/* Catálogo e exibições de produto */}
-      <section id="catálogo">
-        <ProductShowcase
-          title="Desktop Perfeito"
-          description="Experiência desktop completa com interface intuitiva e performance excepcional. Seu produto brilha em telas grandes com recursos avançados."
-          imageSrc={NewMac}
-          imageAlt="Desktop showcase"
-        />
-      </section>
-      
-
-      <ProductShowcase
-        title="Mobile First"
-        description="Design responsivo que se adapta perfeitamente a qualquer dispositivo móvel. Leve seu produto no bolso com toda funcionalidade."
-        imageSrc={iphoneMockup}
-        imageAlt="Mobile showcase"
-        reverse
-      />
-
+ <Showcase />
        <CreativeProcess />
+    
        
   
 
