@@ -74,7 +74,7 @@ export const Navbar = () => {
             {/* Botão Fale Conosco */}
             <Button
               onClick={() => scrollToSection('#contato')}
-              className="ml-4 px-5 py-2 rounded-xl font-medium shadow-md hover:scale-105 transition-all"
+              className="ml-4 px-5 py-2 rounded-xl font-medium shadow-md hover:scale-105 transition-all bg-primary/80"
             >
               Fale Conosco
             </Button>

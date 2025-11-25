@@ -4,28 +4,28 @@ import { Code, Smartphone, Cloud, Palette, Database, Shield } from 'lucide-react
 const services = [
   {
     icon: Code,
-    title: 'Desenvolvimento Web',
-    description: 'Criação de sites e aplicações web modernas, responsivas e otimizadas para performance.',
+    title: 'Desenvolvimento Web Estratégico',
+    description: 'Construção de soluções digitais de alto impacto. Criamos websites e aplicações web inovadoras, com design adaptativo (responsive) e arquitetura otimizada para máxima velocidade, conversão e desempenho em mecanismos de busca.',
   },
   {
     icon: Smartphone,
-    title: 'Apps Mobile',
-    description: 'Desenvolvimento de aplicativos nativos e híbridos para iOS e Android.',
+    title: 'Engenharia de Aplicações Mobile',
+    description: 'Criamos experiências digitais nativas e multiplataforma com arquitetura robusta. Desenvolvemos aplicativos de alto desempenho para iOS e Android, garantindo uma Experiência do Usuário (UX) impecável e alcance máximo de mercado.',
   },
   {
     icon: Cloud,
-    title: 'Cloud Solutions',
-    description: 'Infraestrutura em nuvem escalável e segura para seu negócio crescer sem limites.',
+    title: 'Arquitetura Cloud Otimizada',
+    description: 'Promovemos a transformação digital com soluções cloud-first, altamente seguras e em conformidade com as melhores práticas de mercado. Garantimos a resiliência e o gerenciamento proativo da sua infraestrutura para que você se concentre no core business.',
   },
   {
     icon: Palette,
-    title: 'UI/UX Design',
-    description: 'Interfaces intuitivas e experiências memoráveis centradas no usuário.',
+    title: 'Design Centrado em Resultados',
+    description: 'Estratégia de experiência (UX) e interfaces (UI) que geram valor de negócio. Criamos produtos digitais com usabilidade intuitiva, alta performance e um design que comprovadamente impulsiona a satisfação do usuário e as taxas de conversão.',
   },
   {
     icon: Database,
-    title: 'Backend & APIs',
-    description: 'Desenvolvimento de APIs robustas e sistemas backend escaláveis.',
+    title: 'Arquitetura de Sistemas de Alto Desempenho',
+    description: 'Projetamos e implementamos sistemas backend com foco em baixa latência e performance excepcional. Desenvolvemos APIs RESTful e GraphQL robustas, seguras e prontas para processar grandes volumes de dados com eficiência.',
   },
   {
     icon: Shield,
