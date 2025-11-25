@@ -29,8 +29,8 @@ const services = [
   },
   {
     icon: Shield,
-    title: 'Segurança',
-    description: 'Proteção avançada de dados e implementação de melhores práticas de segurança.',
+    title: 'Cibersegurança Estratégica e Resiliência Digital',
+    description: 'Implementamos uma cultura de segurança by design, integrando protocolos avançados em todas as fases do desenvolvimento. Gerenciamos vulnerabilidades e criamos defesas proativas para garantir a integridade, confidencialidade e disponibilidade dos seus dados.',
   },
 ];
 

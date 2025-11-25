@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 const features = [
   {
     icon: Rocket,
-    title: 'Lightning Fast',
-    description: 'Experience blazing fast performance with optimized code and efficient architecture',
+    title: 'Performance e Velocidade Excepcionais',
+    description: 'Entregamos tempo de carregamento ultrarrápido através de um clean code meticulosamente otimizado e arquiteturas de sistema de baixa latência. Sua aplicação ou site alcançará o mais alto nível de desempenho no mercado.',
   },
   {
     icon: Zap,
-    title: 'Powerful Engine',
-    description: 'Built on cutting-edge technology to handle your most demanding requirements',
+    title: 'Arquitetura Sólida e Robusta',
+    description: 'Nossas soluções são fundamentadas em um motor de processamento construído com tecnologias de última geração. Garantimos a estabilidade inabalável e a capacidade de suportar os requisitos mais exigentes e complexos do seu ecossistema digital.',
   },
   {
     icon: Shield,
@@ -36,10 +36,10 @@ export const Features = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">
-            Nossos <span className="text-yellow-300">Diferenciais</span>
+           Excelência Técnica e Parceria <span className="text-yellow-300">Estratégica</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-            Recursos poderosos projetados para elevar sua experiência
+            Entregamos mais do que código; oferecemos uma colaboração integral. Nossos recursos e metodologias avançadas são calibrados para gerar resultados tangíveis, garantindo que a sua visão de negócio seja executada com precisão, inovação e sustentabilidade.
           </p>
         </motion.div>
 
