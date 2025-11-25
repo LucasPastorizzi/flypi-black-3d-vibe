@@ -14,13 +14,13 @@ const features = [
   },
   {
     icon: Shield,
-    title: 'Enterprise Security',
-    description: 'Bank-level security measures to protect your data and ensure privacy',
+    title: 'Cibersegurança com Padrão Corporativo',
+    description: 'Aplicamos rigorosas medidas de segurança de nível Enterprise, comparáveis aos padrões de instituições financeiras. Implementamos defesas proativas, criptografia avançada e governança robusta para assegurar a total proteção e privacidade dos seus ativos críticos.',
   },
   {
     icon: Sparkles,
-    title: 'Modern Design',
-    description: 'Beautiful, intuitive interface that adapts to your workflow seamlessly',
+    title: 'Interfaces Intuitivas e Design de Alto Nível',
+    description: 'Desenvolvemos produtos com uma estética visualmente sofisticada e design centrado no usuário. O resultado é uma experiência fluida e adaptável, onde a elegância da interface melhora diretamente a sua produtividade e fluxo de trabalho.',
   },
 ];
 
