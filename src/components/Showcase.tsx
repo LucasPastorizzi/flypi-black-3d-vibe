@@ -7,7 +7,7 @@ export const Showcase = () => {
   return (
     <section
       id="catalogo"
-      className="w-full py-16 md:py-28 bg-gradient-to-b from-black to-zinc-950 relative overflow-hidden"
+      className="w-full py-16 md:py-28 bg-white/80 from-black to-zinc-950 relative overflow-hidden"
     >
       <div className="container mx-auto px-4 flex flex-col gap-40">
 
