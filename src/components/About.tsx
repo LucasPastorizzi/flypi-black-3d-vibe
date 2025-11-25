@@ -5,7 +5,7 @@ const values = [
   {
     icon: Target,
     title: 'Missão',
-    description: 'Revolucionar a forma como empresas interagem com tecnologia através de soluções inovadoras e intuitivas.',
+    description: 'Ajudamos empresas a evoluir através de soluções tecnológicas que otimizam operações, reduzem custos e impulsionam crescimento.',
   },
   {
     icon: Users,
@@ -15,7 +15,7 @@ const values = [
   {
     icon: Lightbulb,
     title: 'Inovação',
-    description: 'Constantemente buscando novas tecnologias e metodologias para entregar o melhor resultado possível.',
+    description: 'Acompanhamos o avanço da tecnologia em primeira mão para criar as soluções mais eficientes, rápidas e preparadas para o futuro.',
   },
 ];
 
