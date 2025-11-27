@@ -46,9 +46,10 @@ useEffect(() => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
-      }`}
+   className={`fixed top-0 left-0 right-0 z-[1000001] transition-all duration-100
+  ${isOpen ? 'bg-zinc-900 shadow-lg' : isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'}
+`}
+
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="flex items-center justify-between h-20">
@@ -122,7 +123,7 @@ useEffect(() => {
           document.body.style.overflow = "";
           setIsOpen(false);
         }}
-        className="fixed inset-0 z-[9990] bg-black/70 backdrop-blur-sm md:hidden"
+        className="fixed inset-0 z-[999999] bg-black/70 backdrop-blur-sm md:hidden"
       />
 
       {/* Menu lateral mobile */}
@@ -132,7 +133,7 @@ useEffect(() => {
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ type: "tween", duration: 0.3 }}
-        className="fixed top-0 right-0 z-[9999] w-[78%] max-w-xs h-full bg-zinc-900/95 border-l border-zinc-800 p-6 shadow-xl md:hidden flex flex-col"
+        className="fixed top-0 right-0 z-[1000000] w-[78%] max-w-xs h-full bg-zinc-900/95 border-l border-zinc-800 p-6 shadow-xl md:hidden flex flex-col"
       >
         {/* Botão de fechar */}
         <button
