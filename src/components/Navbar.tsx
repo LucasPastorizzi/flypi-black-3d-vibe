@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/Flypi-Logo.png";
+import { Instagram, Linkedin } from "lucide-react";
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -108,12 +109,10 @@ useEffect(() => {
       </div>
 
    {/* Mobile Menu */}
+{/* Mobile Menu */}
 <AnimatePresence>
   {isOpen && (
     <>
-      {/* Travar scroll da página */}
-      
-
       {/* Overlay escuro */}
       <motion.div
         key="overlay"
@@ -135,18 +134,29 @@ useEffect(() => {
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ type: "tween", duration: 0.3 }}
-        className="fixed top-0 right-0 z-[1000000000] w-[78%] max-w-xs h-full bg-zinc-900/95 border-l border-zinc-800 p-6 pb-10 shadow-xl md:hidden flex flex-col"
+        className="fixed top-0 right-0 z-[1000000000] w-[78%] max-w-xs h-full 
+                   bg-zinc-900/95 border-l border-zinc-800 p-6 pb-10 shadow-xl md:hidden 
+                   flex flex-col"
       >
-        {/* Botão de fechar */}
-        <button
-          onClick={() => {
-            document.body.style.overflow = "";
-            setIsOpen(false);
-          }}
-          className="mb-6 text-white ml-auto"
-        >
-          <X size={26} />
-        </button>
+
+        {/* Topo com logo + botão fechar */}
+        <div className="flex items-center justify-between mb-8">
+          <img
+            src={logo}
+            alt="Flypi Logo"
+            className="h-10 w-auto object-contain"
+          />
+
+          <button
+            onClick={() => {
+              document.body.style.overflow = "";
+              setIsOpen(false);
+            }}
+            className="text-white hover:text-primary transition"
+          >
+            <X size={26} />
+          </button>
+        </div>
 
         {/* Links */}
         <nav className="flex flex-col space-y-4">
@@ -165,21 +175,48 @@ useEffect(() => {
           ))}
         </nav>
 
-        {/* Botão CTA */}
+        {/* Divisor suave */}
+        <div className="my-8 h-px w-full bg-zinc-700/40"></div>
+
+        {/* CTA */}
         <button
           onClick={() => {
             document.body.style.overflow = "";
             scrollToSection("#contato");
             setIsOpen(false);
           }}
-          className="mt-8 w-full px-4 py-3 bg-primary text-black rounded-xl text-lg shadow-md hover:scale-105 transition-transform"
+          className="w-full px-4 py-3 bg-primary text-black rounded-xl text-lg 
+                     shadow-md hover:scale-105 transition-transform"
         >
           Fale Conosco
         </button>
+
+        {/* Redes sociais */}
+        <div className="mt-auto pt-10">
+          <div className="flex items-center space-x-6 text-white">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              className="hover:text-primary transition"
+            >
+              <Instagram size={24} />
+            </a>
+
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              className="hover:text-primary transition"
+            >
+              <Linkedin size={24} />
+            </a>
+          </div>
+        </div>
+
       </motion.aside>
     </>
   )}
 </AnimatePresence>
+
 
 
 
