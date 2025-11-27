@@ -32,7 +32,7 @@ export default function PortfolioDemos() {
   ];
 
   return (
-    <section className="py-20 md:py-24 container mx-auto px-4">
+    <section id="demos" className="py-20 md:py-24 container mx-auto px-4">
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

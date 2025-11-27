@@ -8,8 +8,10 @@ const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Sobre', href: '#about' },
   { label: 'Serviços', href: '#services' },
+  {label: 'Demos', href: '#demos' },
   { label: 'Diferenciais', href: '#diferenciais' },
-  { label: 'Catálogo', href: '#catalogo' }
+  { label: 'Catálogo', href: '#catalogo' },
+  { label: 'Etapas', href: '#etapas' },
  
 ];
 
@@ -123,7 +125,7 @@ useEffect(() => {
           document.body.style.overflow = "";
           setIsOpen(false);
         }}
-        className="fixed inset-0 z-[999999] bg-black/70 backdrop-blur-sm md:hidden"
+        className="fixed inset-0 z-[999999999] bg-black/70 backdrop-blur-sm md:hidden"
       />
 
       {/* Menu lateral mobile */}
@@ -133,7 +135,7 @@ useEffect(() => {
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ type: "tween", duration: 0.3 }}
-        className="fixed top-0 right-0 z-[1000000] w-[78%] max-w-xs h-full bg-zinc-900/95 border-l border-zinc-800 p-6 shadow-xl md:hidden flex flex-col"
+        className="fixed top-0 right-0 z-[1000000000] w-[78%] max-w-xs h-full bg-zinc-900/95 border-l border-zinc-800 p-6 pb-10 shadow-xl md:hidden flex flex-col"
       >
         {/* Botão de fechar */}
         <button
@@ -170,7 +172,7 @@ useEffect(() => {
             scrollToSection("#contato");
             setIsOpen(false);
           }}
-          className="mt-8 w-full px-4 py-3 bg-primary text-white rounded-xl text-lg shadow-md hover:scale-105 transition-transform"
+          className="mt-8 w-full px-4 py-3 bg-primary text-black rounded-xl text-lg shadow-md hover:scale-105 transition-transform"
         >
           Fale Conosco
         </button>

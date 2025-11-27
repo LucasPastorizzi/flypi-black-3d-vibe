@@ -75,7 +75,7 @@ const TiltCard = ({ children }: { children: React.ReactNode }) => {
 
 export const CreativeProcess = () => {
   return (
-    <section id="processo-criativo" className="py-24 bg-muted/30">
+    <section id="etapas" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
