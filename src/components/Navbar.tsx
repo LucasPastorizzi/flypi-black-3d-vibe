@@ -23,6 +23,19 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+useEffect(() => {
+  if (isOpen) {
+    document.body.style.overflow = "hidden"; // trava scroll
+  } else {
+    document.body.style.overflow = "auto";   // libera scroll
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";   // garante reset
+  };
+}, [isOpen]);
+  
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -91,38 +104,83 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35 }}
-            className="md:hidden glass-effect border-t border-border"
-          >
-            <div className="px-4 py-4 space-y-3">
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left py-2 text-foreground text-lg hover:text-primary transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
+   {/* Mobile Menu */}
+<AnimatePresence>
+  {isOpen && (
+    <>
+      {/* Travar scroll da página */}
+      
 
-              {/* Botão Fale Conosco - Mobile */}
-              <button
-                onClick={() => scrollToSection('#contato')}
-                className="block w-full text-center mt-3 px-4 py-2 bg-primary text-white rounded-lg text-lg shadow-md hover:scale-105 transition-all"
-              >
-                Fale Conosco
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Overlay escuro */}
+      <motion.div
+        key="overlay"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25 }}
+        onClick={() => {
+          document.body.style.overflow = "";
+          setIsOpen(false);
+        }}
+        className="fixed inset-0 z-[9990] bg-black/70 backdrop-blur-sm md:hidden"
+      />
+
+      {/* Menu lateral mobile */}
+      <motion.aside
+        key="menu"
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "100%" }}
+        transition={{ type: "tween", duration: 0.3 }}
+        className="fixed top-0 right-0 z-[9999] w-[78%] max-w-xs h-full bg-zinc-900/95 border-l border-zinc-800 p-6 shadow-xl md:hidden flex flex-col"
+      >
+        {/* Botão de fechar */}
+        <button
+          onClick={() => {
+            document.body.style.overflow = "";
+            setIsOpen(false);
+          }}
+          className="mb-6 text-white ml-auto"
+        >
+          <X size={26} />
+        </button>
+
+        {/* Links */}
+        <nav className="flex flex-col space-y-4">
+          {navItems.map((item) => (
+            <button
+              key={item.href}
+              onClick={() => {
+                document.body.style.overflow = "";
+                scrollToSection(item.href);
+                setIsOpen(false);
+              }}
+              className="text-left text-lg text-white hover:text-primary transition-colors"
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
+        {/* Botão CTA */}
+        <button
+          onClick={() => {
+            document.body.style.overflow = "";
+            scrollToSection("#contato");
+            setIsOpen(false);
+          }}
+          className="mt-8 w-full px-4 py-3 bg-primary text-white rounded-xl text-lg shadow-md hover:scale-105 transition-transform"
+        >
+          Fale Conosco
+        </button>
+      </motion.aside>
+    </>
+  )}
+</AnimatePresence>
+
+
+
+
     </nav>
   );
 };
