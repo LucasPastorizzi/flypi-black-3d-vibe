@@ -7,6 +7,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from '@/hooks/use-toast';
+import emailjs from "emailjs-com";
+
 
 
 
@@ -63,23 +65,36 @@ export const Contact = () => {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      toast({
-        title: "Mensagem enviada!",
-        description: "Entraremos em contato em breve.",
-      });
-      reset();
-    } catch (error) {
-      toast({
-        title: "Erro ao enviar",
-        description: "Tente novamente mais tarde.",
-        variant: "destructive",
-      });
-    }
-  };
+ const onSubmit = async (data: ContactFormData) => {
+  try {
+    await emailjs.send(
+      "service_0oqed37",
+      "template_n02itzj",
+      {
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        message: data.message,
+        to_email: "contato.flypi@outlook.com", // <-- garante que chega no seu email
+      },
+      "xlAebkTQmVZnqMs-6"
+    );
+
+    toast({
+      title: "Mensagem enviada!",
+      description: "Entraremos em contato em breve.",
+    });
+
+    reset();
+  } catch (error) {
+    toast({
+      title: "Erro ao enviar",
+      description: "Tente novamente mais tarde.",
+      variant: "destructive",
+    });
+  }
+};
+
 
 return (
   <>
