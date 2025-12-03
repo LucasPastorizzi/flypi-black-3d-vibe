@@ -108,8 +108,8 @@ export const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 max-w-2xl mx-auto px-4"
           >
-            Experience the future of innovation with cutting-edge 3D technology
-            and seamless design
+           Onde criatividade encontra tecnologia para transformar experiências online —
+criamos soluções digitais que inspiram, engajam e elevam a presença das marcas.
           </motion.p>
 
           <motion.div
@@ -117,14 +117,29 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-4"
-          >
-            <Button variant="hero" size="lg" className="text-base md:text-lg w-full sm:w-auto">
-              Get Started
-              <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
-            </Button>
-            <Button variant="heroOutline" size="lg" className="text-base md:text-lg w-full sm:w-auto">
-              Learn More
-            </Button>
+          ><Button
+  variant="hero"
+  size="lg"
+  className="text-base md:text-lg w-full sm:w-auto"
+  asChild
+>
+  <a href="#contato">
+    Get Started
+    <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
+  </a>
+</Button>
+
+           <Button 
+  variant="heroOutline"
+  size="lg" 
+  className="text-base md:text-lg w-full sm:w-auto"
+  asChild
+>
+  <a href="#about">
+    Learn More
+  </a>
+</Button>
+
           </motion.div>
         </motion.div>
       </div>
