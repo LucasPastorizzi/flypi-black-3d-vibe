@@ -2,7 +2,8 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import image1 from "@/assets/examples.png";
 import image1mo from "@/assets/ooss.png";
-
+import imageRestaurante from "@/assets/OrientalRestaurante.png";
+import ImageMobileRestaurante  from "@/assets/OrientalRestauranteMobile.png";
 export default function PortfolioDemos() {
   const projects = [
     {
@@ -12,9 +13,9 @@ export default function PortfolioDemos() {
       link: "#",
     },
     {
-      title: "Shoes Ecommerce",
-      image: "/assets/demos/shoes.png",
-      mobile: "/assets/demos/shoes-mobile.png",
+      title: "Restaurant Website",
+      image: imageRestaurante,
+      mobile: ImageMobileRestaurante,
       link: "#",
     },
     {
