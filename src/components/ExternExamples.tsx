@@ -4,6 +4,7 @@ import image1 from "@/assets/examples.png";
 import image1mo from "@/assets/ooss.png";
 import imageRestaurante from "@/assets/OrientalRestaurante.png";
 import ImageMobileRestaurante  from "@/assets/OrientalRestauranteMobile.png";
+import ImageClothesShop from "@/assets/Demo1Clothes.jpg";
 export default function PortfolioDemos() {
   const projects = [
     {
@@ -19,8 +20,8 @@ export default function PortfolioDemos() {
       link: "#",
     },
     {
-      title: "Cosmetics Shop",
-      image: "/assets/demos/cosmetics.png",
+      title: "Clothes Shop",
+      image: ImageClothesShop,
       mobile: "/assets/demos/cosmetics-mobile.png",
       link: "#",
     },
