@@ -4,6 +4,8 @@ import image1 from "@/assets/examples.png";
 import image1mo from "@/assets/ooss.png";
 import imageRestaurante from "@/assets/OrientalRestaurante.png";
 import ImageMobileRestaurante  from "@/assets/OrientalRestauranteMobile.png";
+import ImageClothesShop from "@/assets/Demo1Clothes.jpg";
+import ImageClothesMobile from "@/assets/Demo1ClothesMobile.jpg";
 export default function PortfolioDemos() {
   const projects = [
     {
@@ -19,9 +21,9 @@ export default function PortfolioDemos() {
       link: "https://lucaspastorizzi.github.io/Projeto-RestauranteOriental/",
     },
     {
-      title: "Cosmetics Shop",
-      image: "/assets/demos/cosmetics.png",
-      mobile: "/assets/demos/cosmetics-mobile.png",
+      title: "Clothes Shop",
+      image: ImageClothesShop,
+      mobile: ImageClothesMobile,
       link: "#",
     },
     {
