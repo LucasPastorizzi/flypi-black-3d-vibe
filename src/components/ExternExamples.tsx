@@ -16,7 +16,7 @@ export default function PortfolioDemos() {
       title: "Restaurant Website",
       image: imageRestaurante,
       mobile: ImageMobileRestaurante,
-      link: "#",
+      link: "https://lucaspastorizzi.github.io/Projeto-RestauranteOriental/",
     },
     {
       title: "Cosmetics Shop",
