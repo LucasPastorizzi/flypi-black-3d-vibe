@@ -24,7 +24,7 @@ export default function PortfolioDemos() {
       title: "Clothes Shop",
       image: ImageClothesShop,
       mobile: ImageClothesMobile,
-      link: "#",
+      link: "https://lucaspastorizzi.github.io/style-spark-landing/",
     },
     {
       title: "Furniture Store",
