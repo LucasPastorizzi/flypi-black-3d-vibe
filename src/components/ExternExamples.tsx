@@ -1,10 +1,12 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import image1 from "@/assets/examples.png";
+import image1 from "@/assets/LArquitetoWEB.png";
 import image1mo from "@/assets/ooss.png";
 import imageRestaurante from "@/assets/OrientalRestaurante.png";
 import ImageMobileRestaurante  from "@/assets/OrientalRestauranteMobile.png";
 import ImageClothesShop from "@/assets/Demo1Clothes.jpg";
+import RestauranteBuffet from "@/assets/Restaurantesss.png";
+import aSS2 from "@/assets/aSS2.png";
 import ImageClothesMobile from "@/assets/Demo1ClothesMobile.jpg";
 export default function PortfolioDemos() {
   const projects = [
@@ -28,9 +30,9 @@ export default function PortfolioDemos() {
     },
     {
       title: "Furniture Store",
-      image: "/assets/demos/furniture.png",
-      mobile: "/assets/demos/furniture-mobile.png",
-      link: "#",
+      image: RestauranteBuffet,
+      mobile: aSS2,
+      link: "https://lucaspastorizzi.github.io/buffet-showcase/",
     },
   ];
 
