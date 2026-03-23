@@ -38,13 +38,13 @@ const Index = () => {
       {/* Serviços e destaques */}
       <Services />
       <ExternExamples />
-      <FloatingDevices />
+      <CreativeProcess />
       <TechCarousel />
       <Features />
       
 
  <Showcase />
-       <CreativeProcess />
+      
     
        
   

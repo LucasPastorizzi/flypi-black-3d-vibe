@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import image1 from "@/assets/LArquitetoWEB.png";
-import image1mo from "@/assets/ooss.png";
+import image1mo from "@/assets/LArquitetoMOBILE.png";
 import imageRestaurante from "@/assets/OrientalRestaurante.png";
 import ImageMobileRestaurante  from "@/assets/OrientalRestauranteMobile.png";
 import ImageClothesShop from "@/assets/Demo1Clothes.jpg";
@@ -14,7 +14,7 @@ export default function PortfolioDemos() {
       title: "Fashion Store UI",
       image: image1,
       mobile: image1mo,
-      link: "#",
+      link: "https://lucaspastorizzi.github.io/architect-s-canvas/",
     },
     {
       title: "Restaurant Website",
