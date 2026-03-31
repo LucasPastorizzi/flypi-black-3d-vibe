@@ -38,7 +38,7 @@ const Index = () => {
       {/* Serviços e destaques */}
       <Services />
       <ExternExamples />
-      <CreativeProcess />
+      
       <TechCarousel />
       <Features />
       

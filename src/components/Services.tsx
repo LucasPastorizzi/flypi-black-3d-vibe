@@ -4,71 +4,81 @@ import { Code, Smartphone, Cloud, Palette, Database, Shield } from 'lucide-react
 const services = [
   {
     icon: Code,
-    title: 'Desenvolvimento Web Estratégico',
-    description: 'Construção de soluções digitais de alto impacto. Criamos websites e aplicações web inovadoras, com design adaptativo (responsive) e arquitetura otimizada para máxima velocidade, conversão e desempenho em mecanismos de busca.',
+    title: 'Websites que Vendem',
+    description: 'Sites rápidos e pensados para transformar visitantes em clientes.',
   },
   {
     icon: Smartphone,
-    title: 'Engenharia de Aplicações Mobile',
-    description: 'Criamos experiências digitais nativas e multiplataforma com arquitetura robusta. Desenvolvemos aplicativos de alto desempenho para iOS e Android, garantindo uma Experiência do Usuário (UX) impecável e alcance máximo de mercado.',
+    title: 'Apps Mobile',
+    description: 'Aplicativos modernos com foco em experiência e performance.',
   },
   {
     icon: Cloud,
-    title: 'Arquitetura Cloud Otimizada',
-    description: 'Promovemos a transformação digital com soluções cloud-first, altamente seguras e em conformidade com as melhores práticas de mercado. Garantimos a resiliência e o gerenciamento proativo da sua infraestrutura para que você se concentre no core business.',
+    title: 'Infraestrutura Cloud',
+    description: 'Escalabilidade e segurança para crescer sem limites.',
   },
   {
     icon: Palette,
-    title: 'Design Centrado em Resultados',
-    description: 'Estratégia de experiência (UX) e interfaces (UI) que geram valor de negócio. Criamos produtos digitais com usabilidade intuitiva, alta performance e um design que comprovadamente impulsiona a satisfação do usuário e as taxas de conversão.',
+    title: 'Design Estratégico',
+    description: 'Design que transmite valor e gera confiança.',
   },
   {
     icon: Database,
-    title: 'Arquitetura de Sistemas de Alto Desempenho',
-    description: 'Projetamos e implementamos sistemas backend com foco em baixa latência e performance excepcional. Desenvolvemos APIs RESTful e GraphQL robustas, seguras e prontas para processar grandes volumes de dados com eficiência.',
+    title: 'Back-end Forte',
+    description: 'Sistemas robustos, rápidos e preparados para escala.',
   },
   {
     icon: Shield,
-    title: 'Cibersegurança Estratégica e Resiliência Digital',
-    description: 'Implementamos uma cultura de segurança by design, integrando protocolos avançados em todas as fases do desenvolvimento. Gerenciamos vulnerabilidades e criamos defesas proativas para garantir a integridade, confidencialidade e disponibilidade dos seus dados.',
+    title: 'Segurança Digital',
+    description: 'Proteção completa para seu negócio e seus dados.',
   },
 ];
 
 export const Services = () => {
   return (
-    <section id="services" className="py-16 md:py-24 relative">
+    <section id="services" className="py-24">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-             Serviços End-to-End para a Estruturação da <span className="text-yellow-300">Transformação Digital Corporativa</span>
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-            Soluções completas para transformar sua visão em realidade digital.
-          </p>
-        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* HEADER */}
+        <div className="mb-20 max-w-3xl">
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+            Não são serviços.
+            <br />
+            <span className="text-yellow-300">São vantagens competitivas.</span>
+          </h2>
+          <p className="text-muted-foreground mt-6 text-lg">
+            Cada solução é pensada para te destacar, posicionar e fazer seu negócio crescer no digital.
+          </p>
+        </div>
+
+        {/* TIMELINE / LISTA DIFERENTE */}
+        <div className="relative border-l border-white/10 pl-8 space-y-16">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              whileHover={{ scale: 1.03 }}
-              className="glass-effect rounded-2xl p-6 md:p-8 hover:border-yellow-300 transition-all duration-300"
+              transition={{ delay: index * 0.1 }}
+              className="relative group"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <service.icon className="w-7 h-7 text-yellow-300" />
+              {/* DOT */}
+              <div className="absolute -left-[42px] top-2 w-5 h-5 rounded-full bg-yellow-300 flex items-center justify-center">
+                <service.icon className="w-3 h-3 text-black" />
               </div>
-              <h3 className="text-xl md:text-2xl font-semibold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground">{service.description}</p>
+
+              {/* CONTENT */}
+              <div className="group-hover:translate-x-2 transition">
+                <h3 className="text-2xl font-semibold mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground max-w-xl">
+                  {service.description}
+                </p>
+              </div>
+
+              {/* LINHA HOVER */}
+              <div className="h-[1px] w-0 bg-yellow-300 mt-4 group-hover:w-32 transition-all duration-500" />
             </motion.div>
           ))}
         </div>

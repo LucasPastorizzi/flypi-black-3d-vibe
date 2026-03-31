@@ -9,10 +9,9 @@ const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Sobre', href: '#about' },
   { label: 'Serviços', href: '#services' },
-  {label: 'Demos', href: '#demos' },
+  { label: 'Demos', href: '#demos' },
   { label: 'Diferenciais', href: '#diferenciais' },
   { label: 'Catálogo', href: '#catalogo' },
-  { label: 'Etapas', href: '#etapas' },
  
 ];
 
@@ -26,33 +25,45 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-useEffect(() => {
-  if (isOpen) {
-    document.body.style.overflow = "hidden"; // trava scroll
-  } else {
-    document.body.style.overflow = "auto";   // libera scroll
-  }
-
-  return () => {
-    document.body.style.overflow = "auto";   // garante reset
-  };
-}, [isOpen]);
-  
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
-  };
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
+  
+  const scrollToSection = (href: string) => {
+  const element = document.querySelector(href) as HTMLElement;
+
+  if (!element) return;
+
+  const navbarOffset = 100;
+
+  const elementTop =
+    element.getBoundingClientRect().top + window.scrollY;
+
+  // 🔥 AJUSTE PRINCIPAL AQUI
+  const offsetPosition = elementTop - navbarOffset + 50;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: "smooth",
+  });
+
+  setIsOpen(false);
+};
 
   return (
     <nav
-   className={`fixed top-0 left-0 right-0 z-[1000001] transition-all duration-100
-  ${isOpen ? 'bg-zinc-900 shadow-lg' : isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'}
-`}
-
+      className={`fixed top-0 left-0 right-0 z-[1000001] transition-all duration-100
+      ${isOpen ? 'bg-zinc-900 shadow-lg' : isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'}
+    `}
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="flex items-center justify-between h-20">
@@ -88,7 +99,6 @@ useEffect(() => {
               </motion.button>
             ))}
 
-            {/* Botão Fale Conosco */}
             <Button
               onClick={() => scrollToSection('#contato')}
               className="ml-4 px-5 py-2 rounded-xl font-medium shadow-md hover:scale-105 transition-all bg-primary/80"
@@ -108,119 +118,98 @@ useEffect(() => {
         </div>
       </div>
 
-   {/* Mobile Menu */}
-{/* Mobile Menu */}
-<AnimatePresence>
-  {isOpen && (
-    <>
-      {/* Overlay escuro */}
-      <motion.div
-        key="overlay"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        onClick={() => {
-          document.body.style.overflow = "";
-          setIsOpen(false);
-        }}
-        className="fixed inset-0 z-[999999999] bg-black/70 backdrop-blur-sm md:hidden"
-      />
-
-      {/* Menu lateral mobile */}
-      <motion.aside
-        key="menu"
-        initial={{ x: "100%" }}
-        animate={{ x: 0 }}
-        exit={{ x: "100%" }}
-        transition={{ type: "tween", duration: 0.3 }}
-        className="fixed top-0 right-0 z-[1000000000] w-[78%] max-w-xs h-full 
-                   bg-zinc-900/95 border-l border-zinc-800 p-6 pb-10 shadow-xl md:hidden 
-                   flex flex-col"
-      >
-
-        {/* Topo com logo + botão fechar */}
-        <div className="flex items-center justify-between mb-8">
-          <img
-            src={logo}
-            alt="Flypi Logo"
-            className="h-10 w-auto object-contain"
-          />
-
-          <button
-            onClick={() => {
-              document.body.style.overflow = "";
-              setIsOpen(false);
-            }}
-            className="text-white hover:text-primary transition"
-          >
-            <X size={26} />
-          </button>
-        </div>
-
-        {/* Links */}
-        <nav className="flex flex-col space-y-4">
-          {navItems.map((item) => (
-            <button
-              key={item.href}
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            <motion.div
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
               onClick={() => {
                 document.body.style.overflow = "";
-                scrollToSection(item.href);
                 setIsOpen(false);
               }}
-              className="text-left text-lg text-white hover:text-primary transition-colors"
+              className="fixed inset-0 z-[999999999] bg-black/70 backdrop-blur-sm md:hidden"
+            />
+
+            <motion.aside
+              key="menu"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
+              className="fixed top-0 right-0 z-[1000000000] w-[78%] max-w-xs h-full 
+              bg-zinc-900/95 border-l border-zinc-800 p-6 pb-10 shadow-xl md:hidden 
+              flex flex-col"
             >
-              {item.label}
-            </button>
-          ))}
-        </nav>
 
-        {/* Divisor suave */}
-        <div className="my-8 h-px w-full bg-zinc-700/40"></div>
+              <div className="flex items-center justify-between mb-8">
+                <img
+                  src={logo}
+                  alt="Flypi Logo"
+                  className="h-10 w-auto object-contain"
+                />
 
-        {/* CTA */}
-        <button
-          onClick={() => {
-            document.body.style.overflow = "";
-            scrollToSection("#contato");
-            setIsOpen(false);
-          }}
-          className="w-full px-4 py-3 bg-primary text-black rounded-xl text-lg 
-                     shadow-md hover:scale-105 transition-transform"
-        >
-          Fale Conosco
-        </button>
+                <button
+                  onClick={() => {
+                    document.body.style.overflow = "";
+                    setIsOpen(false);
+                  }}
+                  className="text-white hover:text-primary transition"
+                >
+                  <X size={26} />
+                </button>
+              </div>
 
-        {/* Redes sociais */}
-        <div className="mt-auto pt-10">
-          <div className="flex items-center space-x-6 text-white">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              className="hover:text-primary transition"
-            >
-              <Instagram size={24} />
-            </a>
+              <nav className="flex flex-col space-y-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.href}
+                    onClick={() => {
+                      document.body.style.overflow = "";
+                      scrollToSection(item.href);
+                      setIsOpen(false);
+                    }}
+                    className="text-left text-lg text-white hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
 
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              className="hover:text-primary transition"
-            >
-              <Linkedin size={24} />
-            </a>
-          </div>
-        </div>
+              <div className="my-8 h-px w-full bg-zinc-700/40"></div>
 
-      </motion.aside>
-    </>
-  )}
-</AnimatePresence>
+              <button
+                onClick={() => {
+                  document.body.style.overflow = "";
+                  scrollToSection("#contato");
+                  setIsOpen(false);
+                }}
+                className="w-full px-4 py-3 bg-primary text-black rounded-xl text-lg 
+                shadow-md hover:scale-105 transition-transform"
+              >
+                Fale Conosco
+              </button>
 
+              <div className="mt-auto pt-10">
+                <div className="flex items-center space-x-6 text-white">
+                  <a href="https://instagram.com" target="_blank" className="hover:text-primary transition">
+                    <Instagram size={24} />
+                  </a>
 
+                  <a href="https://linkedin.com" target="_blank" className="hover:text-primary transition">
+                    <Linkedin size={24} />
+                  </a>
+                </div>
+              </div>
 
-
-
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

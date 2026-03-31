@@ -20,9 +20,9 @@ export const Showcase = () => {
           className="text-center"
         >
           <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-black">
-            Plataformas de Visualização de <span className="text-yellow-300">Produtos</span>
+            Plataformas de Visualização de <span className="text-zinc-700">Produtos</span>
           </h2>
-          <p className="text-lg text-zinc-400 mt-3 max-w-xl mx-auto text-black">
+          <p className="text-lg text-zinc-700 mt-3 max-w-xl mx-auto text-black">
            Design e função impulsionam suas vendas.
           </p>
         </motion.div>

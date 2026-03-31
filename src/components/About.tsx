@@ -1,117 +1,162 @@
-import { motion, useMotionValue, useSpring, useTransform, animate } from 'framer-motion';
-import { Target, Users, Lightbulb } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+} from "framer-motion";
+import { useRef } from "react";
+import Lglg from "../assets/FlypiL.png";
 
-// Componente para animar os números dos stats
-const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
-  const [display, setDisplay] = useState(0);
-  
-  return (
-    <motion.span
-      onViewportEnter={() => {
-        const controls = animate(0, value, {
-          duration: 2,
-          ease: "easeOut",
-          onUpdate: (latest) => setDisplay(Math.floor(latest)),
-        });
-        return () => controls.stop();
-      }}
-    >
-      {display}{suffix}
-    </motion.span>
-  );
-};
-
-const values = [
+/* =========================
+   STEPS
+========================= */
+const steps = [
   {
-    icon: Target,
-    title: 'Missão',
-    description: 'Ajudamos empresas a evoluir através de soluções tecnológicas que otimizam operações e impulsionam crescimento.',
+    type: "simple",
+    title: "Seu negócio ainda é invisível?",
+    description: "Se ninguém entende o valor do que você oferece, simplesmente segue direto. No mercado de hoje, não basta ser bom — você precisa ser visto, lembrado e desejado. Porque no fim, quem não aparece… desaparece.",
   },
   {
-    icon: Users,
-    title: 'Equipe',
-    description: 'Uma equipe jovem e ambiciosa, dedicada a evoluir nosso produto e crescer com os resultados dos parceiros.',
+    type: "simple",
+    title: "A internet é um campo de batalha.",
+    description: "Ou você se destaca, ou você é ignorado. Todos os dias, milhares de marcas disputam atenção — e só vence quem sabe se posicionar. Não basta estar online, é preciso marcar presença. Porque no digital, visibilidade não é opção… é sobrevivência.",
   },
   {
-    icon: Lightbulb,
-    title: 'Inovação',
-    description: 'Acompanhamos a tecnologia em primeira mão para criar soluções eficientes e preparadas para o futuro.',
+    type: "simple",
+    title: "Design não é estética.",
+    description: "É posicionamento. É percepção. É valor. É a forma como sua marca é sentida antes mesmo de ser entendida. É o que transforma curiosidade em interesse — e interesse em decisão. Porque no fim, as pessoas não compram só o que você vende… compram o que sua marca transmite.",
+  },
+  {
+    type: "content",
+    title: "O que a Flypi faz diferente?",
+    description:
+      "Criamos sites que não são só bonitos — são estratégicos, rápidos e feitos para converter.",
+    items: [
+      "Design pensado para gerar valor",
+      "Alta performance e velocidade",
+      "Experiência moderna e responsiva",
+      "Foco total em conversão",
+    ],
+  },
+  {
+    type: "simple",
+    title: "Isso é Flypi.",
+    description: "E isso muda tudo.",
+    highlight: true,
   },
 ];
 
-export const About = () => {
+/* =========================
+   STEP COMPONENT
+========================= */
+const Step = ({ step, index, total, progress }: any) => {
+  const start = index / total;
+  const end = (index + 1) / total;
+
+  const opacity = useTransform(
+    progress,
+    [start, start + 0.1, end - 0.1, end],
+    [0, 1, 1, 0]
+  );
+
+  const y = useTransform(progress, [start, end], [120, -120]);
+
   return (
-    <section id="about" className="py-20 md:py-32 relative overflow-hidden">
-      {/* Background Decorativo - Blur de fundo para dar profundidade */}
-      <div className="absolute top-1/4 -left-20 w-72 h-72 bg-yellow-300/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-72 h-72 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "circOut" }}
-          className="text-center mb-16 md:mb-24"
-        >
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-            Sobre a <span className="text-yellow-300">Flypi</span>
+    <motion.div
+      style={{ opacity, y }}
+      className="absolute inset-0 flex items-center justify-center px-6"
+    >
+      {/* STEP SIMPLES */}
+      {step.type === "simple" && (
+        <div className="text-center max-w-3xl">
+          <h2
+            className={`text-4xl md:text-7xl font-bold ${
+              step.highlight ? "text-yellow-300" : ""
+            }`}
+          >
+            {step.title}
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Transformamos ideias em ativos digitais estratégicos. <br/>
-            Soluções tecnológicas para impulsionar negócios.
-          </p>
-        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {values.map((value, index) => (
-            <motion.div
-              key={value.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.7 }}
-              whileHover={{ y: -10 }}
-              className="group relative p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm transition-colors hover:border-yellow-300/50"
-            >
-              <div className="mb-6 inline-flex p-4 rounded-2xl bg-yellow-300/10 text-yellow-300 group-hover:scale-110 group-hover:bg-yellow-300 group-hover:text-black transition-all duration-500">
-                <value.icon size={32} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-            </motion.div>
+          <p className="mt-6 text-lg text-neutral-400">
+            {step.description}
+          </p>
+        </div>
+      )}
+
+      {/* STEP COM CONTEÚDO */}
+      {step.type === "content" && (
+        <div className="max-w-5xl w-full grid md:grid-cols-2 gap-10 items-center">
+          
+          {/* TEXTO */}
+          <div>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+              {step.title}
+            </h2>
+
+            <p className="text-lg text-neutral-400 mb-6">
+              {step.description}
+            </p>
+
+            <ul className="space-y-3">
+              {step.items.map((item: string, i: number) => (
+                <li
+                  key={i}
+                  className="text-neutral-300 flex items-center gap-3"
+                >
+                  <span className="w-2 h-2 bg-yellow-300 rounded-full" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* BLOCO VISUAL */}
+          <div className="h-[300px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg flex items-center justify-center">
+            <span className="text-neutral-500">
+              <img src={Lglg} alt="" />
+            </span>
+          </div>
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+/* =========================
+   ABOUT
+========================= */
+export const About = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end end"],
+  });
+
+  const smooth = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 25,
+  });
+
+  return (
+    <section
+      id="about" // 🔥 ESSENCIAL PRA NAV FUNCIONAR
+      ref={ref}
+      className="relative h-[500vh] bg-black"
+    >
+      {/* STICKY */}
+      <div className="sticky top-0 h-screen flex items-center justify-center">
+        <div className="relative w-full max-w-6xl">
+          {steps.map((step, index) => (
+            <Step
+              key={index}
+              step={step}
+              index={index}
+              total={steps.length}
+              progress={smooth}
+            />
           ))}
         </div>
-
-        {/* Stats Section com Transição de Escala */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative overflow-hidden rounded-[2.5rem] p-1 border border-white/10 bg-gradient-to-b from-white/10 to-transparent"
-        >
-          <div className="bg-background/40 backdrop-blur-xl rounded-[2.4rem] p-10 md:p-16">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-              {[
-                { label: "Projetos", val: 500, suffix: "+" },
-                { label: "Clientes", val: 50, suffix: "+" },
-                { label: "Satisfação", val: 99, suffix: "%" },
-                { label: "Suporte", val: 24, suffix: "/7" }
-              ].map((stat, i) => (
-                <div key={i} className="flex flex-col gap-2">
-                  <div className="text-4xl md:text-6xl font-black text-yellow-300">
-                    <Counter value={stat.val} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-sm md:text-base font-medium uppercase tracking-widest opacity-60">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
