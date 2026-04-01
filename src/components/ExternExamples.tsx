@@ -1,5 +1,5 @@
 import { motion, useMotionValue, animate } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
 import image1 from "@/assets/LArquitetoWEB.png";
@@ -14,6 +14,8 @@ import ImageClothesMobile from "@/assets/Demo1ClothesMobile.jpg";
 export default function PortfolioDemos() {
   const x = useMotionValue(0);
   const animationRef = useRef<any>(null);
+
+  const [cardWidth, setCardWidth] = useState(0);
 
   const projects = [
     {
@@ -44,39 +46,70 @@ export default function PortfolioDemos() {
 
   const loopProjects = [...projects, ...projects, ...projects];
 
-  const CARD_WIDTH = window.innerWidth * 0.8 + 80;
-  const TOTAL_WIDTH = CARD_WIDTH * projects.length;
-
+  /* =========================
+     RESPONSIVO REAL
+  ========================= */
   useEffect(() => {
-    animationRef.current = animate(x, x.get() - TOTAL_WIDTH, {
+    const updateWidth = () => {
+      if (window.innerWidth < 768) {
+        setCardWidth(window.innerWidth * 0.9 + 24);
+      } else {
+        setCardWidth(window.innerWidth * 0.8 + 80);
+      }
+    };
+
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
+  const totalWidth = cardWidth * projects.length;
+
+  /* =========================
+     AUTOPLAY
+  ========================= */
+  useEffect(() => {
+    if (!cardWidth) return;
+
+    animationRef.current?.stop();
+
+    animationRef.current = animate(x, -totalWidth, {
       duration: 20,
       ease: "linear",
       repeat: Infinity,
-      repeatType: "loop",
     });
 
-    return () => animationRef.current.stop();
-  }, []);
+    return () => animationRef.current?.stop();
+  }, [cardWidth]);
 
+  /* =========================
+     LOOP INFINITO SUAVE
+  ========================= */
   useEffect(() => {
+    if (!cardWidth) return;
+
     return x.on("change", (latest) => {
-      if (latest <= -TOTAL_WIDTH * 2) {
-        x.set(latest + TOTAL_WIDTH);
+      if (latest <= -totalWidth * 2) {
+        x.set(latest + totalWidth);
       }
       if (latest >= 0) {
-        x.set(latest - TOTAL_WIDTH);
+        x.set(latest - totalWidth);
       }
     });
-  }, []);
+  }, [cardWidth]);
 
+  /* =========================
+     SETAS FUNCIONANDO
+  ========================= */
   const move = (direction: number) => {
-    animationRef.current.stop();
+    animationRef.current?.stop();
 
-    animate(x, x.get() + direction * CARD_WIDTH, {
+    animate(x, x.get() + direction * cardWidth, {
       duration: 0.5,
       ease: "easeInOut",
       onComplete: () => {
-        animationRef.current = animate(x, x.get() - TOTAL_WIDTH, {
+        animationRef.current = animate(x, x.get() - totalWidth, {
           duration: 20,
           ease: "linear",
           repeat: Infinity,
@@ -87,24 +120,29 @@ export default function PortfolioDemos() {
 
   return (
     <section
-      id="demos" // ✅ FIX PRINCIPAL
-      className="relative h-screen bg-black overflow-hidden scroll-mt-32" // ✅ evita navbar cobrir
+      id="demos"
+      className="relative h-screen bg-black overflow-hidden"
     >
-      <h2 className="absolute top-16 w-full text-center text-4xl md:text-6xl font-bold z-20 text-white">
+      <h2 className="absolute top-16 w-full text-center text-3xl md:text-6xl font-bold z-20 text-white">
         Demos <span className="text-yellow-300">Flypi</span>
       </h2>
 
-      {/* SETAS */}
+      {/* ESQUERDA */}
       <button
         onClick={() => move(1)}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-white/10 backdrop-blur p-3 rounded-full hover:bg-white/20 transition"
+        className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-30 
+                   bg-white/10 backdrop-blur p-4 md:p-3 
+                   rounded-full hover:bg-white/20 transition"
       >
         <ChevronLeft className="text-white" />
       </button>
 
+      {/* DIREITA */}
       <button
         onClick={() => move(-1)}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-white/10 backdrop-blur p-3 rounded-full hover:bg-white/20 transition"
+        className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-30 
+                   bg-white/10 backdrop-blur p-4 md:p-3 
+                   rounded-full hover:bg-white/20 transition"
       >
         <ChevronRight className="text-white" />
       </button>
@@ -113,7 +151,7 @@ export default function PortfolioDemos() {
       <div className="h-full flex items-center overflow-hidden">
         <motion.div
           style={{ x }}
-          className="flex gap-20 px-[10vw]"
+          className="flex gap-6 md:gap-20 px-[5vw] md:px-[10vw]"
         >
           {loopProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
@@ -133,34 +171,48 @@ function ProjectCard({ project }: any) {
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative min-w-[80vw] max-w-[80vw] group"
+      className="relative 
+                 min-w-[85vw] max-w-[85vw] 
+                 md:min-w-[70vw] md:max-w-[70vw] 
+                 group"
     >
-      <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+      <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
 
+        {/* IMAGEM */}
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-[60vh] object-cover transition duration-700 group-hover:scale-105"
+          className="w-full h-[40vh] md:h-[60vh] object-cover 
+                     transition duration-700 group-hover:scale-105"
         />
 
+        {/* MOBILE */}
         <img
           src={project.mobile}
           alt="mobile"
-          className="absolute bottom-6 right-6 w-32 rounded-xl shadow-2xl 
-                     group-hover:scale-110 transition duration-700"
+          className="absolute 
+                     bottom-2 right-2 
+                     w-16 md:w-32 
+                     rounded-lg md:rounded-xl 
+                     shadow-2xl 
+                     group-hover:scale-110 
+                     transition duration-700"
         />
 
+        {/* OVERLAY */}
         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-500" />
 
-        <div className="absolute bottom-6 left-6 text-white">
-          <h3 className="text-2xl md:text-4xl font-bold">
+        {/* TITULO */}
+        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white">
+          <h3 className="text-lg md:text-4xl font-bold">
             {project.title}
           </h3>
         </div>
 
-        <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition duration-500">
-          <div className="bg-white/80 backdrop-blur px-4 py-2 rounded-full flex items-center gap-2 text-black">
-            Ver demo <ExternalLink size={16} />
+        {/* BOTAO */}
+        <div className="absolute top-4 right-4 md:top-6 md:right-6 opacity-0 group-hover:opacity-100 transition duration-500">
+          <div className="bg-white/80 backdrop-blur px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-2 text-black text-sm md:text-base">
+            Ver demo <ExternalLink size={14} />
           </div>
         </div>
       </div>
