@@ -3,8 +3,9 @@ import {
   useScroll,
   useTransform,
   useSpring,
+  useMotionValue,
 } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import Lglg from "../assets/FlypiL.png";
 
 /* =========================
@@ -14,17 +15,20 @@ const steps = [
   {
     type: "simple",
     title: "Seu negócio ainda é invisível?",
-    description: "Se ninguém entende o valor do que você oferece, simplesmente segue direto. No mercado de hoje, não basta ser bom — você precisa ser visto, lembrado e desejado. Porque no fim, quem não aparece… desaparece.",
+    description:
+      "Se ninguém entende o valor do que você oferece, simplesmente segue direto. No mercado de hoje, não basta ser bom — você precisa ser visto, lembrado e desejado. Porque no fim, quem não aparece… desaparece.",
   },
   {
     type: "simple",
     title: "A internet é um campo de batalha.",
-    description: "Ou você se destaca, ou você é ignorado. Todos os dias, milhares de marcas disputam atenção — e só vence quem sabe se posicionar. Não basta estar online, é preciso marcar presença. Porque no digital, visibilidade não é opção… é sobrevivência.",
+    description:
+      "Ou você se destaca, ou você é ignorado. Todos os dias, milhares de marcas disputam atenção — e só vence quem sabe se posicionar. Não basta estar online, é preciso marcar presença. Porque no digital, visibilidade não é opção… é sobrevivência.",
   },
   {
     type: "simple",
     title: "Design não é estética.",
-    description: "É posicionamento. É percepção. É valor. É a forma como sua marca é sentida antes mesmo de ser entendida. É o que transforma curiosidade em interesse — e interesse em decisão. Porque no fim, as pessoas não compram só o que você vende… compram o que sua marca transmite.",
+    description:
+      "É posicionamento. É percepção. É valor. É a forma como sua marca é sentida antes mesmo de ser entendida. É o que transforma curiosidade em interesse — e interesse em decisão. Porque no fim, as pessoas não compram só o que você vende… compram o que sua marca transmite.",
   },
   {
     type: "content",
@@ -49,21 +53,25 @@ const steps = [
 /* =========================
    STEP COMPONENT
 ========================= */
-const Step = ({ step, index, total, progress }: any) => {
-  const start = index / total;
-  const end = (index + 1) / total;
+const Step = ({ step, index, currentStep }: any) => {
+  const isActive = currentStep === index;
 
-  const opacity = useTransform(
-    progress,
-    [start, start + 0.1, end - 0.1, end],
-    [0, 1, 1, 0]
-  );
+  // 🔥 3D Motion
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-  const y = useTransform(progress, [start, end], [120, -120]);
+  const rotateX = useTransform(mouseY, [-200, 200], [12, -12]);
+  const rotateY = useTransform(mouseX, [-200, 200], [-12, 12]);
 
   return (
     <motion.div
-      style={{ opacity, y }}
+      initial={{ opacity: 0, y: 100 }}
+      animate={{
+        opacity: isActive ? 1 : 0,
+        y: isActive ? 0 : 100,
+        scale: isActive ? 1 : 0.95,
+      }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
       className="absolute inset-0 flex items-center justify-center px-6"
     >
       {/* STEP SIMPLES */}
@@ -110,11 +118,32 @@ const Step = ({ step, index, total, progress }: any) => {
             </ul>
           </div>
 
-          {/* BLOCO VISUAL */}
-          <div className="h-[300px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg flex items-center justify-center">
-            <span className="text-neutral-500">
-              <img src={Lglg} alt="" />
-            </span>
+          {/* 🔥 3D VISUAL */}
+          <div
+            className="relative h-[300px] flex items-center justify-center perspective-[1000px]"
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              mouseX.set(e.clientX - rect.left - rect.width / 2);
+              mouseY.set(e.clientY - rect.top - rect.height / 2);
+            }}
+            onMouseLeave={() => {
+              mouseX.set(0);
+              mouseY.set(0);
+            }}
+          >
+            <div className="absolute w-[260px] h-[260px] bg-yellow-300/20 blur-[120px] rounded-full" />
+
+            <motion.img
+              src={Lglg}
+              alt=""
+              style={{ rotateX, rotateY }}
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+              }}
+              whileHover={{ scale: 1.05 }}
+              className="relative z-10 w-[500px] md:w-[700px] drop-shadow-[0_40px_80px_rgba(0,0,0,0.7)]"
+            />
           </div>
         </div>
       )}
@@ -133,27 +162,40 @@ export const About = () => {
     offset: ["start start", "end end"],
   });
 
-  const smooth = useSpring(scrollYProgress, {
-    stiffness: 90,
+  // 🔥 transforma scroll em steps
+  const stepProgress = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, steps.length - 1]
+  );
+
+  const smooth = useSpring(stepProgress, {
+    stiffness: 120,
     damping: 25,
   });
 
+  const [currentStep, setCurrentStep] = useState(0);
+
+  useEffect(() => {
+    return smooth.on("change", (v) => {
+      setCurrentStep(Math.round(v));
+    });
+  }, [smooth]);
+
   return (
     <section
-      id="about" // 🔥 ESSENCIAL PRA NAV FUNCIONAR
+      id="about"
       ref={ref}
-      className="relative h-[500vh] bg-black"
+      className="relative h-[400vh] bg-black"
     >
-      {/* STICKY */}
-      <div className="sticky top-0 h-screen flex items-center justify-center">
-        <div className="relative w-full max-w-6xl">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <div className="relative w-full max-w-6xl h-full">
           {steps.map((step, index) => (
             <Step
               key={index}
               step={step}
               index={index}
-              total={steps.length}
-              progress={smooth}
+              currentStep={currentStep}
             />
           ))}
         </div>
